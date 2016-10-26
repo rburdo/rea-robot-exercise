@@ -7,7 +7,7 @@ To execute, run "run.bat <commands file>" in the current directory.
 Commands file is optional. 
 If specified, it should contain commands in separate lines, in the syntax defined for this code exercise.
 Empty lines and incorrect commands are ignored.
-SOme examples are provided in the Command Files directory.
+Some examples are provided in the Command Files directory.
 
 If no commands file is specified, commands will be read from standard input until EOF (Ctrl-Z) is read.
 
