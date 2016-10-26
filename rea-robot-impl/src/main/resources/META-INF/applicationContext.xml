@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:config.properties" />
+
+    <bean id="robotOperatorFactory" class="com.rburdo.coding.rea.robot.impl.RobotOperatorFactoryImpl">
+        <constructor-arg ref="robotBoard" />
+    </bean>
+
+    <bean id="robotBoard" class="com.rburdo.coding.rea.robot.impl.Board">
+        <constructor-arg value="${board_x_min}" />
+        <constructor-arg value="${board_x_max}" />
+        <constructor-arg value="${board_y_min}" />
+        <constructor-arg value="${board_y_max}" />
+    </bean>
+
+    <bean id="commandFactoryFactory" class="com.rburdo.coding.rea.robot.impl.input.InputStreamRobotCommandFactoryFactory">
+        <constructor-arg>
+            <bean class="com.rburdo.coding.rea.robot.impl.input.RobotCommandParser" />
+        </constructor-arg>
+    </bean>
+
+    <bean id="reportPresenterFactory" class="com.rburdo.coding.rea.robot.impl.output.OutputStreamReportPresenterFactory" />
+
+</beans>
