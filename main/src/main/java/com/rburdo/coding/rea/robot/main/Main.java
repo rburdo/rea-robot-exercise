@@ -15,7 +15,7 @@ import static java.lang.System.exit;
 public class Main {
 
     public static void main(String[] args) {
-        if (args.length > 2) {
+        if (args.length > 1) {
             System.err.println("Format : run.bat <commands file> ");
             exit(1);
         }
@@ -26,7 +26,7 @@ public class Main {
         InputStreamRobotCommandFactoryFactory commandFactoryFactory = ctx.getBean(InputStreamRobotCommandFactoryFactory.class);
 
         try {
-            InputStream inputStream = (args.length == 2 ? new FileInputStream(args[1]) : System.in);
+            InputStream inputStream = (args.length == 1 ? new FileInputStream(args[0]) : System.in);
             RobotOperator operator = operatorFactory.create(
                     commandFactoryFactory.create(inputStream), presenterFactory.create());
 
